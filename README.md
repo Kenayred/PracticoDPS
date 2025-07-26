@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -39,3 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # PracticoDPS
 Ejercicio practico para el desafio DPS
 >>>>>>> 1b4c6e8aa85983945ae35b289233bf74d7f6c9d9
+=======
+# PracticoDPS
+Repositorio para codigo de cart para desafio
+>>>>>>> 17161de720ccc8cafc5834d49a9fc43dff614f34

@@ -1,44 +1,24 @@
 "use client";
-import { useState } from "react";
-import { Headers } from "@/components/Headers";
-import { ProductList } from "@/components/ProductList";
-import Modal from "@/components/Modal";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
-  const [allProducts, setAllProducts] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [countProducts, setCountProducts] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
+  const router = useRouter();
 
-  const handleConfirm = () => {
-    // Handle confirmation logic
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    // Handle cancellation logic
-    setIsModalOpen(false);
-  };
+  useEffect(() => {
+    const user = sessionStorage.getItem("user");
+    if (!user) {
+      router.push("/login");
+    } else {
+      router.push("/dashboard");
+    }
+  }, [router]);
 
   return (
-    <>
-      <Headers
-        allProducts={allProducts}
-        setAllProducts={setAllProducts}
-        total={total}
-        setTotal={setTotal}
-        countProducts={countProducts}
-        setCountProducts={setCountProducts}
-      />
-
-      <ProductList
-        allProducts={allProducts}
-        setAllProducts={setAllProducts}
-        total={total}
-        setTotal={setTotal}
-        countProducts={countProducts}
-        setCountProducts={setCountProducts}
-      />
-    </>
-  );
+    <div>
+      <h2>Página Principal</h2>
+      <p>Contenido visible solo si estás logueado</p>
+    </div>
+  ); // No need to render anything here
 }

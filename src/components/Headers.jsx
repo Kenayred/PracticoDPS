@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Modal from "@/components/Modal";
+import { generarPDF } from "@/utils/pdfGenerator";
 export const Headers = ({
   allProducts,
   setAllProducts,
@@ -52,6 +53,13 @@ export const Headers = ({
     //   setTotal(0);
     //   setCountProducts(0);
     // }
+  };
+
+  const onPrintCart = () => {
+    showConfirmation("¿Desea imprimir la factura?", () => {
+      generarPDF(allProducts, total);
+      setModalOpen(false);
+    });
   };
   return (
     <header>
@@ -107,6 +115,9 @@ export const Headers = ({
               </div>
               <button className="btn-clear-all" onClick={onCleanCart}>
                 Vaciar Carrito
+              </button>
+              <button className="btn-clear-all" onClick={onPrintCart}>
+                Imprimir Factura
               </button>
             </>
           ) : (
